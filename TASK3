@@ -1,0 +1,44 @@
+ login system with validation
+-- Create Database
+CREATE DATABASE login_system;
+
+-- Use Database
+USE login_system;
+
+-- Create Users Table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert Sample Users (Registration)
+INSERT INTO users (username, email, password) VALUES
+('ashok', 'ashok@gmail.com', 'ashok123'),
+('rahul', 'rahul@gmail.com', 'rahul123'),
+('priya', 'priya@gmail.com', 'priya123');
+
+-- Check Login Credentials
+SELECT * FROM users
+WHERE email = 'ashok@gmail.com' AND password = 'ashok123';
+
+-- Retrieve User After Login
+SELECT id, username, email
+FROM users
+WHERE email = 'ashok@gmail.com';
+
+-- Check if Email Already Exists (for validation)
+SELECT email
+FROM users
+WHERE email = 'ashok@gmail.com';
+
+-- Update User Password
+UPDATE users
+SET password = 'newpassword123'
+WHERE email = 'ashok@gmail.com';
+
+-- Delete User Account
+DELETE FROM users
+WHERE email = 'rahul@gmail.com';
