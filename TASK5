@@ -1,0 +1,52 @@
+ transaction based-payment simulation
+-- Create Database
+CREATE DATABASE payment_system;
+
+-- Use Database
+USE payment_system;
+
+-- Create Users Table (Customer Account)
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    balance DECIMAL(10,2)
+);
+
+-- Create Merchant Table
+CREATE TABLE merchants (
+    merchant_id INT AUTO_INCREMENT PRIMARY KEY,
+    merchant_name VARCHAR(100),
+    balance DECIMAL(10,2)
+);
+
+-- Insert Sample Data
+INSERT INTO users (name, balance) VALUES
+('Ashok', 10000),
+('Rahul', 5000);
+
+INSERT INTO merchants (merchant_name, balance) VALUES
+('Amazon', 20000),
+('Flipkart', 15000);
+
+-- Start Transaction
+START TRANSACTION;
+
+-- Deduct Amount from User Account
+UPDATE users
+SET balance = balance - 2000
+WHERE user_id = 1;
+
+-- Add Amount to Merchant Account
+UPDATE merchants
+SET balance = balance + 2000
+WHERE merchant_id = 1;
+
+-- If Transaction Successful
+COMMIT;
+
+-- If Error Occurs
+ROLLBACK;
+
+-- View Updated Balances
+SELECT * FROM users;
+SELECT * FROM merchants;
