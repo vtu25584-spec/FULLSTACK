@@ -1,0 +1,49 @@
+
+-- Create Database
+CREATE DATABASE dashboard_db;
+
+-- Use Database
+USE dashboard_db;
+
+-- Create Students Table
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    dob DATE,
+    department VARCHAR(50),
+    phone VARCHAR(15)
+);
+
+-- Insert Sample Data
+INSERT INTO students (name, email, dob, department, phone) VALUES
+('Ashok', 'ashok@gmail.com', '2003-05-10', 'CSE', '9876543210'),
+('Rahul', 'rahul@gmail.com', '2002-08-15', 'ECE', '9123456780'),
+('Priya', 'priya@gmail.com', '2003-01-20', 'IT', '9012345678'),
+('Kiran', 'kiran@gmail.com', '2003-03-12', 'CSE', '9988776655'),
+('Anitha', 'anitha@gmail.com', '2002-11-25', 'ECE', '9871234560');
+
+-- Retrieve All Student Records
+SELECT * FROM students;
+
+-- Sort Students by Name
+SELECT * FROM students
+ORDER BY name ASC;
+
+-- Sort Students by Date of Birth
+SELECT * FROM students
+ORDER BY dob ASC;
+
+-- Filter Students by Department
+SELECT * FROM students
+WHERE department = 'CSE';
+
+-- Count Students in Each Department
+SELECT department, COUNT(*) AS total_students
+FROM students
+GROUP BY department;
+
+-- Count Students in Specific Department
+SELECT COUNT(*) AS total_cse_students
+FROM students
+WHERE department = 'CSE';
