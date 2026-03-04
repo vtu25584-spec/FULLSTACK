@@ -1,0 +1,38 @@
+
+-- Create Database
+CREATE DATABASE student_db;
+
+-- Use Database
+USE student_db;
+
+-- Create Students Table
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    dob DATE,
+    department VARCHAR(50),
+    phone VARCHAR(15)
+);
+
+-- Insert Sample Student Data
+INSERT INTO students (name, email, dob, department, phone)
+VALUES
+('Ashok', 'ashok@gmail.com', '2003-05-10', 'CSE', '9876543210'),
+('Rahul', 'rahul@gmail.com', '2002-08-15', 'ECE', '9123456780'),
+('Priya', 'priya@gmail.com', '2003-01-20', 'IT', '9012345678');
+
+-- Retrieve All Students
+SELECT * FROM students;
+
+-- Retrieve Specific Columns
+SELECT name, email, department FROM students;
+
+-- Update Student Phone Number
+UPDATE students
+SET phone = '9999999999'
+WHERE id = 1;
+
+-- Delete a Student Record
+DELETE FROM students
+WHERE id = 3;
