@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task 6 - Logging System</title>
+</head>
+
+<body>
+
+<h2 align="center">Database Activity Logging</h2>
+
+<p align="center">
+Triggers automatically log database activities.
+Views generate daily reports.
+</p>
+
+</body>
+</html>
+
+<!-- SQL CODE
+
+CREATE TABLE activity_log(
+log_id INT AUTO_INCREMENT PRIMARY KEY,
+action_type VARCHAR(20),
+action_time TIMESTAMP
+);
+
+CREATE TRIGGER log_insert
+
+AFTER INSERT
+ON students
+
+FOR EACH ROW
+
+INSERT INTO activity_log(action_type,action_time)
+VALUES('INSERT',NOW());
+
+CREATE VIEW daily_activity AS
+
+SELECT DATE(action_time) AS day,
+COUNT(*) AS total_logs
+FROM activity_log
+GROUP BY day;
+
+-->
