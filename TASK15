@@ -1,0 +1,16 @@
+package edu.myapplicationclient.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MyApplicationclientApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MyApplicationclientApplication.class, args);
+	}
+
+}
+spring.application.name=MyApplicationclient
+server.port=9000
+ 
