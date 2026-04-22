@@ -1,0 +1,21 @@
+package edu.myapplicationserver.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+@SpringBootApplication
+@EnableEurekaServer
+public class MyApplicationserverApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MyApplicationserverApplication.class, args);
+	}
+
+}
+spring.application.name=MyApplicationserver
+server.port=8761
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+ 
+ 
